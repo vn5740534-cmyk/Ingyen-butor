@@ -58,41 +58,6 @@ const translations = {
   }
 };
 
-const listings = [
-  {
-    title: "Elegáns kanapé szett",
-    city: "Berlin",
-    distance: 4,
-    description: "Kiváló állapotú, modern szövet kanapé. Azonnal vihető.",
-    image: "https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=800&auto=format&fit=crop",
-    time: "Ma · 14:20"
-  },
-  {
-    title: "Fa étkezőasztal 6 székkel",
-    city: "Berlin",
-    distance: 7,
-    description: "Stabil, klasszikus fa asztal, kisebb karcokkal.",
-    image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=800&auto=format&fit=crop",
-    time: "Ma · 10:12"
-  },
-  {
-    title: "Minimalista polcrendszer",
-    city: "Potsdam",
-    distance: 22,
-    description: "Fehér polc, moduláris elemekkel. Könnyen szállítható.",
-    image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=800&auto=format&fit=crop",
-    time: "Tegnap · 19:40"
-  },
-  {
-    title: "Ágykeret + matrac",
-    city: "Berlin",
-    distance: 12,
-    description: "Queen size ágykeret, tiszta matraccal, azonnali elvitel.",
-    image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop",
-    time: "Ma · 08:02"
-  }
-];
-
 const cardContainer = document.getElementById("cards");
 const resultCount = document.getElementById("resultCount");
 const closestResult = document.getElementById("closestResult");
@@ -102,8 +67,17 @@ const cityInput = document.getElementById("cityInput");
 const distanceInput = document.getElementById("distanceInput");
 const keywordInput = document.getElementById("keywordInput");
 
+let listings = [];
+
 const renderCards = (data) => {
   cardContainer.innerHTML = "";
+  if (!data.length) {
+    cardContainer.innerHTML = "<p class=\"card-meta\">Nincs találat a megadott feltételekre.</p>";
+    resultCount.textContent = "0";
+    closestResult.textContent = "-";
+    return;
+  }
+
   data.forEach((item) => {
     const card = document.createElement("article");
     card.className = "card";
@@ -131,7 +105,10 @@ const applyFilters = () => {
   const filtered = listings.filter((item) => {
     const cityMatch = !city || item.city.toLowerCase().includes(city);
     const distMatch = !maxDist || item.distance <= maxDist;
-    const keywordMatch = !keyword || item.title.toLowerCase().includes(keyword) || item.description.toLowerCase().includes(keyword);
+    const keywordMatch =
+      !keyword ||
+      item.title.toLowerCase().includes(keyword) ||
+      item.description.toLowerCase().includes(keyword);
     return cityMatch && distMatch && keywordMatch;
   });
 
@@ -150,6 +127,17 @@ const updateLanguage = (lang) => {
   document.documentElement.lang = lang;
 };
 
+const loadListings = async () => {
+  try {
+    const response = await fetch("data/listings.json");
+    if (!response.ok) throw new Error("Nem sikerült betölteni a listát.");
+    listings = await response.json();
+    renderCards(listings);
+  } catch (error) {
+    cardContainer.innerHTML = "<p class=\"card-meta\">Hiba történt a lista betöltésekor.</p>";
+  }
+};
+
 document.querySelectorAll(".lang-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".lang-btn").forEach((b) => b.classList.remove("active"));
@@ -160,5 +148,5 @@ document.querySelectorAll(".lang-btn").forEach((btn) => {
 
 searchBtn.addEventListener("click", applyFilters);
 
-renderCards(listings);
 updateLanguage("hu");
+loadListings();
