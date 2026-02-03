@@ -16,7 +16,8 @@ const translations = {
     freeOnly: "Csak ingyenes",
     officialOnly: "Engedélyezett forrás",
     noticeTitle: "Adatforrás",
-    noticeText: "Ez a demó statikus adatokkal fut. Éles adatforrás kizárólag hivatalosan engedélyezett módon integrálható."
+    noticeText:
+      "Ez a demó statikus adatokkal fut. Éles adatforrás kizárólag hivatalosan engedélyezett módon integrálható."
   },
   de: {
     subtitle: "Premium-Suche für kostenlose Möbel",
@@ -35,7 +36,8 @@ const translations = {
     freeOnly: "Nur kostenlos",
     officialOnly: "Offizielle Quelle",
     noticeTitle: "Datenquelle",
-    noticeText: "Diese Demo läuft mit statischen Daten. Live-Daten nur über offiziell erlaubte Quellen."
+    noticeText:
+      "Diese Demo läuft mit statischen Daten. Live-Daten nur über offiziell erlaubte Quellen."
   },
   en: {
     subtitle: "Premium finder for free furniture",
@@ -54,7 +56,8 @@ const translations = {
     freeOnly: "Free only",
     officialOnly: "Official source",
     noticeTitle: "Data source",
-    noticeText: "This demo uses static data. Live data can be integrated only via officially allowed sources."
+    noticeText:
+      "This demo uses static data. Live data can be integrated only via officially allowed sources."
   }
 };
 
