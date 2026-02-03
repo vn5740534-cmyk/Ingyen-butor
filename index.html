@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ingyen Bútor Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">◎</span>
+          <div>
+            <h1>Ingyen Bútor Finder</h1>
+            <p class="subtitle" data-i18n="subtitle">Prémium kereső ingyenes bútorokra</p>
+          </div>
+        </div>
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="hu">HU</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <h2 data-i18n="heroTitle">Találd meg a legjobb ingyenes bútorokat gyorsan</h2>
+          <p data-i18n="heroText">
+            Város + távolság szűrő, valós idejű demó megjelenítés, elegáns kártyás lista.
+          </p>
+          <div class="hero-badges">
+            <span data-i18n="badge1">HU/DE/EN</span>
+            <span data-i18n="badge2">Profi dizájn</span>
+            <span data-i18n="badge3">Gyors szűrés</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="stat">
+            <p data-i18n="statTitle">Aktív találatok</p>
+            <h3 id="resultCount">0</h3>
+          </div>
+          <div class="stat">
+            <p data-i18n="statSub">Legközelebbi</p>
+            <h3 id="closestResult">-</h3>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls">
+        <div class="control">
+          <label for="cityInput" data-i18n="city">Város</label>
+          <input id="cityInput" type="text" placeholder="Berlin" />
+        </div>
+        <div class="control">
+          <label for="distanceInput" data-i18n="distance">Max távolság (km)</label>
+          <input id="distanceInput" type="number" min="1" max="250" value="25" />
+        </div>
+        <div class="control">
+          <label for="keywordInput" data-i18n="keyword">Kulcsszó</label>
+          <input id="keywordInput" type="text" placeholder="kanapé" />
+        </div>
+        <button id="searchBtn" class="primary" data-i18n="search">Keresés</button>
+      </section>
+
+      <section class="status">
+        <div class="status-left">
+          <h4 data-i18n="results">Találatok</h4>
+          <p id="activeFilters">Berlin · 25 km</p>
+        </div>
+        <div class="status-right">
+          <span class="pill" data-i18n="freeOnly">Csak ingyenes</span>
+          <span class="pill" data-i18n="officialOnly">Engedélyezett forrás</span>
+        </div>
+      </section>
+
+      <section id="cards" class="cards"></section>
+
+      <section class="notice">
+        <h5 data-i18n="noticeTitle">Adatforrás</h5>
+        <p data-i18n="noticeText">
+          Ez a demó statikus adatokkal fut. Éles adatforrás kizárólag hivatalosan engedélyezett módon integrálható.
+        </p>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
