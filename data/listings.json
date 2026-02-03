@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Elegáns kanapé szett",
+    "city": "Berlin",
+    "distance": 4,
+    "description": "Kiváló állapotú, modern szövet kanapé. Azonnal vihető.",
+    "image": "https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=800&auto=format&fit=crop",
+    "time": "Ma · 14:20"
+  },
+  {
+    "title": "Fa étkezőasztal 6 székkel",
+    "city": "Berlin",
+    "distance": 7,
+    "description": "Stabil, klasszikus fa asztal, kisebb karcokkal.",
+    "image": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=800&auto=format&fit=crop",
+    "time": "Ma · 10:12"
+  },
+  {
+    "title": "Minimalista polcrendszer",
+    "city": "Potsdam",
+    "distance": 22,
+    "description": "Fehér polc, moduláris elemekkel. Könnyen szállítható.",
+    "image": "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=800&auto=format&fit=crop",
+    "time": "Tegnap · 19:40"
+  },
+  {
+    "title": "Ágykeret + matrac",
+    "city": "Berlin",
+    "distance": 12,
+    "description": "Queen size ágykeret, tiszta matraccal, azonnali elvitel.",
+    "image": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=800&auto=format&fit=crop",
+    "time": "Ma · 08:02"
+  }
+]
